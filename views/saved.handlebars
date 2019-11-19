@@ -1,0 +1,32 @@
+<div class="container" style="margin-top: 100px">
+
+    <div class="col-md-12 jumbotron">
+        <div class="text-center">
+            <h1> Saved Articles</h1>
+        </div>
+    </div>
+    <div class="col-md-12">
+        {{#if article}}
+            {{#each article}}
+                <div class="card" style="margin-bottom: 20px;">
+                    <div class="card-header">
+                        <h4>{{this.headline}}</h4>
+                    </div>
+                    <div class="card-body">
+                        <p> {{this.summary}}</p>
+                        <a href='https://foxnews.com/world/{{this.link}}' target="_blank">https://foxnews.com/world/{{this.link}}</a>
+                        <br><br>
+                        <button type="button" class="btn btn-success addNote" data-toggle="modal" data-target="#noteModal{{this._id}}" data-id={{this._id}}>View/Add Notes</button>
+                        <button type="button" class="btn btn-danger delete" data-id={{this._id}}>Delete</button>
+                    </div>
+                </div>
+            {{/each}}
+        {{else}}
+        <div class="card">
+            <div class="card-body">
+                <h4>You have no saved articles.</h4>
+            </div>
+        </div>
+        {{/if}}
+    </div>
+</div>
